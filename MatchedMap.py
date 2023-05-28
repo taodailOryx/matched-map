@@ -111,6 +111,9 @@ class MatchedMap:
         if not self.names:
             return {}
 
+        if self.match_to_reciprocal and len(self.names) % 2 != 0:
+            raise ValueError('Number of names must be even for reciprocal matching')
+
         if self.randomize_name_order:
             self.__shuffle_names()
 
