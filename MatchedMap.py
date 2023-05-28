@@ -32,10 +32,9 @@ class MatchedMap:
         )
 
         if duplicate_names:
-            raise ValueError(
-                'Duplicate name(s) in names_list (including ' \
-                f'{", ".join(list(duplicate_names)[:3])})'
-            )
+            msg: str = f'Duplicate entry in names_list ({duplicate_names.pop()})' \
+
+            raise ValueError(msg)
 
         try:
             self.names = [str(n) for n in self.names_list]
