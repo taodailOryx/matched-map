@@ -131,39 +131,3 @@ class MatchedMap:
         return self.__last_map
 
 
-if __name__ == '__main__':
-    names: list[str] = [
-        'tristana',
-        'jax',
-        'lulu',
-        'garen',
-        'fiora',
-        'zed',
-        'twitch',
-        'janna',
-        'nami',
-        'lux',
-        'renekton',
-    ]
-
-    forbidden: dict[str, str] = {
-        'tristana': 'jax',
-        'jax': 'lulu',
-        'lulu': 'tristana',
-        'garen': 'fiora',
-        'fiora': 'zed',
-        'zed': 'garen',
-        'twitch': 'janna',
-        'janna': 'nami',
-        'nami': 'lux',
-        'lux': 'renekton',
-        'renekton': 'twitch',
-    }
-
-    mapper: MatchedMap = MatchedMap(names)
-    mapper.set_forbidden_matches(forbidden)
-    mapper.randomize_name_order = True
-    # mapper.match_to_reciprocal = True
-    matched_map: dict[str, str] = mapper.generate_matched_map()
-
-    print(matched_map)
